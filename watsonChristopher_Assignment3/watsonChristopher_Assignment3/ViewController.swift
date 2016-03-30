@@ -46,6 +46,7 @@ class ViewController: UIViewController {
             if ((self.lblBillAmount.text!.isFloat) != nil){
                 self.lblTipToGive.textColor = UIColor(colorLiteralRed: 100/255.0, green: 200/255.0, blue: 120/255.0, alpha: 1.0)
                 doMathToGiveTip(Int(sender.value))
+                
             }
             else {
                 self.lblTipToGive.textColor = UIColor.redColor()

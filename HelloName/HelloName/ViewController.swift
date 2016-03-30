@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var tfName: UITextField!
     @IBOutlet weak var lblHelloName: UILabel!
@@ -23,8 +23,21 @@ class ViewController: UIViewController {
         
         let name = self.tfName.text
         self.lblHelloName.text = "Hello \(name!)"
+        self.tfName.delegate = self
+    }
+    
+    @IBAction func changedTextInField(sender: UITextField) {
+        
+//        self.lblHelloName.text = "Hello \(self.tfName.text!)"
         
     }
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        self.lblHelloName.text = "Hello \(textField.text!)"
+        
+        return true
+    }
+    
+    
     
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
         print("Hello")
